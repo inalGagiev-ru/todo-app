@@ -61,7 +61,7 @@ func (h *Handler) getAllTasks(c *gin.Context) {
 		filters.TagIDs = tagIDs
 	}
 
-	tasks, err := (*h.services).GetAllTasks(userID, filters)
+	tasks, err := h.services.GetAllTasks(userID, filters)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return

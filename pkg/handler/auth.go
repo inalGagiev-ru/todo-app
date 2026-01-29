@@ -15,7 +15,7 @@ func (h *Handler) signUp(c *gin.Context) {
 		return
 	}
 
-	response, err := (*h.services).SignUp(input)
+	response, err := h.services.SignUp(input)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -32,7 +32,7 @@ func (h *Handler) signIn(c *gin.Context) {
 		return
 	}
 
-	response, err := (*h.services).SignIn(input)
+	response, err := h.services.SignIn(input)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return

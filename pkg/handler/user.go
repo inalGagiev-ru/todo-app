@@ -14,7 +14,7 @@ func (h *Handler) getProfile(c *gin.Context) {
 		return
 	}
 
-	profile, err := (*h.services).GetProfile(userID)
+	profile, err := h.services.GetProfile(userID)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -36,7 +36,7 @@ func (h *Handler) updateProfile(c *gin.Context) {
 		return
 	}
 
-	profile, err := (*h.services).UpdateProfile(userID, input)
+	profile, err := h.services.UpdateProfile(userID, input)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return

@@ -20,7 +20,7 @@ func (h *Handler) createCategory(c *gin.Context) {
 		return
 	}
 
-	category, err := (*h.services).CreateCategory(input)
+	category, err := h.services.CreateCategory(input)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -36,7 +36,7 @@ func (h *Handler) getAllCategories(c *gin.Context) {
 		return
 	}
 
-	categories, err := (*h.services).GetAllCategories()
+	categories, err := h.services.GetAllCategories()
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
